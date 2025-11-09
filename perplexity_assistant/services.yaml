@@ -1,0 +1,8 @@
+ask_perplexity:
+  name: Ask Perplexity AI
+  description: Sends a manual request to the Perplexity AI assistant.
+  fields:
+    question:
+      description: Text to send to the API.
+      example: What is the weather like in Paris?
+      required: true

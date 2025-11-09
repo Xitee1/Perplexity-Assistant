@@ -2,6 +2,7 @@
   "domain": "perplexity_assistant",
   "name": "Perplexity Assistant",
   "documentation": "https://github.com/Pekulll/perplexity-assistant",
+  "issue_tracker": "https://github.com/Pekulll/perplexity-assistant/issues",
   "requirements": ["requests", "aiohttp"],
   "codeowners": ["@Pekulll"],
   "config_flow": true,

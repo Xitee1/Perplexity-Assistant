@@ -3,7 +3,8 @@ import logging
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers import discovery
+from homeassistant.helpers import discovery, aiohttp_client
+from homeassistant.components import conversation as ha_conversation
 from .const import DOMAIN, CONF_API_KEY, CONF_MODEL, CONF_LANGUAGE
 from .conversation import PerplexityAgent
 
@@ -23,7 +24,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """
     
     _LOGGER.debug("Setup of the Perplexity Assistant module")
-    _LOGGER = logging.getLogger(__name__)
     
     return True
 
@@ -44,14 +44,16 @@ async def async_setup_entry(hass: HomeAssistant, entry) -> bool:
     api_key = entry.data.get(CONF_API_KEY)
     model = entry.data.get(CONF_MODEL, "sonar-small-online")
     language = entry.data.get(CONF_LANGUAGE, "en")
-    
-    session = hass.helpers.aiohttp_client.async_get_clientsession()
-    agent = PerplexityAgent(hass, session, api_key, model, language)
+    notify_response = entry.data.get("notify_response", False)
+    custom_system_prompt = entry.data.get("custom_system_prompt", "")
+        
+    session = aiohttp_client.async_get_clientsession(hass)
+    agent = PerplexityAgent(hass, session, api_key, model, language, notify_response, custom_system_prompt)
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = agent
 
     
     # Load the conversation component
-    conversation.async_set_agent(hass, DOMAIN, agent)
+    ha_conversation.async_set_agent(hass, entry, agent)
     hass.services.async_register(DOMAIN, "ask", agent.async_ask)
     
     return True
