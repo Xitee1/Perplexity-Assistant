@@ -5,9 +5,10 @@ from the Perplexity API. Since the public API for credits may not be available
 or documented, this implementation uses a dummy value and is structured so it
 can be easily extended later.
 """
+from __future__ import annotations
+
 import logging
 
-from __future__ import annotations
 from datetime import datetime, timedelta
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.restore_state import RestoreEntity
@@ -16,7 +17,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity import EntityCategory
 
-from .const import DOMAIN, CONF_API_KEY
+from .const import DOMAIN
 
 
 _LOGGER = logging.getLogger(__name__)

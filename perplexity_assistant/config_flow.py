@@ -4,7 +4,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import callback
-from homeassistant.helpers.selector import SelectSelector, BooleanSelector
+from homeassistant.helpers.selector import SelectSelector, BooleanSelector, NumberSelector
 
 from .const import *
 
@@ -44,6 +44,7 @@ class PerplexityConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             vol.Optional(CONF_LANGUAGE, default=DEFAULT_LANGUAGE): SelectSelector({"options": SUPPORTED_LANGUAGES, "mode": "dropdown"}),
             vol.Optional(CONF_MODEL, default=DEFAULT_MODEL): SelectSelector({"options": SUPPORTED_MODELS, "mode": "dropdown"}),
             vol.Optional(CONF_CUSTOM_SYSTEM_PROMPT, default=""): vol.All(str, vol.Length(max=250)),
+            vol.Optional(CONF_ENTITIES_SUMMARY_REFRESH_RATE, default=DEFAULT_ENTITIES_SUMMARY_REFRESH_RATE): NumberSelector({"min": 5, "step": 5, "mode": "box", "unit_of_measurement": "s", "max": 43200}),
             vol.Optional(CONF_ALLOW_ENTITIES_ACCESS, default=False): BooleanSelector(),
             vol.Optional(CONF_ALLOW_ACTIONS_ON_ENTITIES, default=False): BooleanSelector(),
             vol.Optional(CONF_NOTIFY_RESPONSE, default=False): BooleanSelector(),
@@ -96,6 +97,7 @@ class PerplexityOptionsFlowHandler(config_entries.OptionsFlow):
         current_model: str = config_entry.options.get(CONF_MODEL, DEFAULT_MODEL)
         current_language: str = config_entry.options.get(CONF_LANGUAGE, DEFAULT_LANGUAGE)
         current_custom_system_prompt: str = config_entry.options.get(CONF_CUSTOM_SYSTEM_PROMPT, "")
+        current_entities_summary_refresh_rate: int = config_entry.options.get(CONF_ENTITIES_SUMMARY_REFRESH_RATE, DEFAULT_ENTITIES_SUMMARY_REFRESH_RATE)
         current_allow_entities_access: bool = config_entry.options.get(CONF_ALLOW_ENTITIES_ACCESS, False)
         current_allow_actions_on_entities: bool = config_entry.options.get(CONF_ALLOW_ACTIONS_ON_ENTITIES, False)
         current_notify_response: bool = config_entry.options.get(CONF_NOTIFY_RESPONSE, False)
@@ -106,6 +108,7 @@ class PerplexityOptionsFlowHandler(config_entries.OptionsFlow):
             vol.Optional(CONF_LANGUAGE, default=current_language): SelectSelector({"options": SUPPORTED_LANGUAGES, "mode": "dropdown"}),
             vol.Optional(CONF_MODEL, default=current_model): SelectSelector({"options": SUPPORTED_MODELS, "mode": "dropdown"}),
             vol.Optional(CONF_CUSTOM_SYSTEM_PROMPT, default=current_custom_system_prompt): vol.All(str, vol.Length(max=250)),
+            vol.Optional(CONF_ENTITIES_SUMMARY_REFRESH_RATE, default=current_entities_summary_refresh_rate): NumberSelector({"min": 5, "step": 5, "mode": "box", "unit_of_measurement": "s", "max": 43200}),
             vol.Optional(CONF_ALLOW_ENTITIES_ACCESS, default=current_allow_entities_access): BooleanSelector(),
             vol.Optional(CONF_ALLOW_ACTIONS_ON_ENTITIES, default=current_allow_actions_on_entities): BooleanSelector(),
             vol.Optional(CONF_NOTIFY_RESPONSE, default=current_notify_response): BooleanSelector(),

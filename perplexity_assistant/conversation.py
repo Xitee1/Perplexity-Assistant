@@ -10,9 +10,8 @@ from homeassistant.core import ServiceCall, HomeAssistant
 from homeassistant.helpers import device_registry, entity_registry
 from homeassistant.helpers.intent import IntentResponse
 
-from perplexity_assistant.sensor import AlltimeBillSensor, MonthlyBillSensor
-
 from .const import *
+from .sensor import AlltimeBillSensor, MonthlyBillSensor
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -32,10 +31,11 @@ class PerplexityAgent(AbstractConversationAgent):
         self.api_key: str = self.config_entry.options.get(CONF_API_KEY, "")
         self.model: str = self.config_entry.options.get(CONF_MODEL, "sonar")
         self.language: str = self.config_entry.options.get(CONF_LANGUAGE, "en")
-        self.notify_response: bool = self.config_entry.options.get(CONF_NOTIFY_RESPONSE, False)
+        self.custom_system_prompt: str = self.config_entry.options.get(CONF_CUSTOM_SYSTEM_PROMPT, "")
+        self.entities_summary_refresh_rate: int = self.config_entry.options.get(CONF_ENTITIES_SUMMARY_REFRESH_RATE, DEFAULT_ENTITIES_SUMMARY_REFRESH_RATE)
         self.allow_entities_access: bool = self.config_entry.options.get(CONF_ALLOW_ENTITIES_ACCESS, False)
         self.allow_actions_on_entities: bool = self.config_entry.options.get(CONF_ALLOW_ACTIONS_ON_ENTITIES, False)
-        self.custom_system_prompt: str = self.config_entry.options.get(CONF_CUSTOM_SYSTEM_PROMPT, "")
+        self.notify_response: bool = self.config_entry.options.get(CONF_NOTIFY_RESPONSE, False)
         
         self._summary: str | None = None
         self._last_summary_update: datetime | None = None
@@ -57,8 +57,8 @@ class PerplexityAgent(AbstractConversationAgent):
             str: Summary of entities.
         """
         if self._summary and self._last_summary_update:
-            # Regenerate summary every 24 hours
-            if (datetime.now() - self._last_summary_update).total_seconds() < 86400:
+            # Regenerate summary every self.entities_summary_refresh_rate seconds
+            if (datetime.now() - self._last_summary_update).total_seconds() < self.entities_summary_refresh_rate:
                 return self._summary
         
         _LOGGER.debug("Generating entities summary for Perplexity context.")

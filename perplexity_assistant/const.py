@@ -11,6 +11,7 @@ CONF_LANGUAGE: str = "language"
 CONF_CUSTOM_SYSTEM_PROMPT: str = "custom_system_prompt"
 CONF_ALLOW_ENTITIES_ACCESS: str = "allow_entities_access"
 CONF_ALLOW_ACTIONS_ON_ENTITIES: str = "allow_actions_on_entities"
+CONF_ENTITIES_SUMMARY_REFRESH_RATE: str = "entities_summary_refresh_rate"
 CONF_NOTIFY_RESPONSE: str = "notify_response"
 
 # Perplexity API endpoint
@@ -23,6 +24,7 @@ SUPPORTED_LANGUAGES: list[str] = ["en", "fr", "es", "de", "it", "pt", "nl", "ru"
 # Default configuration values
 DEFAULT_MODEL: str = "sonar"
 DEFAULT_LANGUAGE: str = "en"
+DEFAULT_ENTITIES_SUMMARY_REFRESH_RATE: int = 3600 # in seconds (1 hour)
 
 # System prompt template for the AI assistant
 SYSTEM_PROMPT: str = f"""
