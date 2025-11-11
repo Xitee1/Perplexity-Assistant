@@ -181,6 +181,7 @@ logger:
 * More translation + localization improvements.
 * Request counter sensor.
 * Upgrade `ask_perplexity` service.
+* Rework configuration flow, with an advanced configuration flow.
 
 ## 📝 License
 
