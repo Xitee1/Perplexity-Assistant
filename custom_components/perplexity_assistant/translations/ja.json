@@ -1,0 +1,142 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "APIキー"
+        },
+        "data_description": {
+          "api_key": "指定されたAPIキーはPerplexity AIサービスへのリクエスト認証に使用されます。形式: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Perplexity Assistantを使用するには、[Perplexity](https://www.perplexity.ai/account/api/keys)でAPIキーを生成してください。"
+      },
+      "model": {
+        "data": {
+          "model": "モデル",
+          "language": "言語",
+          "custom_system_prompt": "カスタムシステムプロンプト",
+          "advanced_configuration": "高度な設定"
+        },
+        "data_description": {
+          "model": "使用するPerplexity Assistantのモデルを選択します。モデルによりコストが異なる場合があります (詳細: [APIコスト](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)）。",
+          "language": "Perplexity Assistantが応答する言語を選択します。",
+          "custom_system_prompt": "各リクエストでのアシスタントの動作を誘導するためのカスタム指示を提供します。"
+        },
+        "description": "モデル、言語、カスタムシステムプロンプトを設定できます。"
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "最大トークン数",
+          "creativity": "創造性",
+          "diversity": "多様性",
+          "frequency_penalty": "頻度ペナルティ"
+        },
+        "data_description": {
+          "max_tokens": "アシスタントの応答の長さ（トークン数）を制限します。",
+          "creativity": "応答の創造性レベルを制御します。低い値（約0.1）は事実重視、高い値（約0.9）は創造的になります。",
+          "diversity": "生成される応答の多様性を調整します。低い値（約0.1）は集中、高い値（約0.9）は多様性増加。",
+          "frequency_penalty": "応答内の繰り返しを減らします。高い値（約1.0）は繰り返しを強く抑制し、低い値（約0.0）は抑制しません。"
+        },
+        "description": "モデルパラメータを調整してアシスタントの動作を微調整します。"
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Home Assistantエンティティへのアクセスを許可",
+          "entities_summary_refresh_rate": "エンティティ概要の更新頻度",
+          "allow_actions_on_entities": "Home Assistantエンティティへのアクションを許可",
+          "enable_web_search": "最新情報取得のためWeb検索を有効化",
+          "notify_response": "各応答を通知",
+          "enable_response_on_speakers": "スピーカーで応答を再生",
+          "tts_engine": "TTSエンジン"
+        },
+        "data_description": {
+          "allow_entities_access": "よりコンテキストに沿った応答のため、Home Assistantのエンティティへアクセスを許可します。",
+          "entities_summary_refresh_rate": "エンティティ状態概要を更新する頻度（秒単位）を設定します。",
+          "allow_actions_on_entities": "照明を点灯したりサーモスタットを調整したりするアクションを許可します。",
+          "enable_web_search": "最新情報取得のためWeb検索を有効化しますが、関連性が低下する場合があります。",
+          "notify_response": "有効時、生成された各応答を通知します。",
+          "enable_response_on_speakers": "接続されたスピーカーで応答を再生します（TTS設定と正確な位置特定が必要）。",
+          "tts_engine": "音声応答用のTTSエンジンを選択します。"
+        },
+        "description": "Perplexity Assistantの権限と許可を定義します。"
+      }
+    },
+    "error": {
+      "invalid_api_key": "指定されたAPIキーが無効です。確認して再試行してください。",
+      "invalid_api_key_length": "APIキーはちょうど53文字である必要があります。確認して再試行してください。",
+      "max_length_exceeded": "カスタムシステムプロンプトは250文字を超えてはいけません。短くして再試行してください。",
+      "cannot_connect": "Perplexity AIサービスに接続できません。インターネット接続を確認して再試行してください。",
+      "unknown": "不明なエラーが発生しました。後でもう一度お試しください。"
+    },
+    "abort": {
+      "single_instance_allowed": "Perplexity Assistantのインスタンスは1つのみ許可されます。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "menu": "変更する設定を選択"
+        }
+      },
+      "api": {
+        "data": {
+          "api_key": "APIキー"
+        },
+        "data_description": {
+          "api_key": "指定されたAPIキーはPerplexity AIサービスへのリクエスト認証に使用されます。形式: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Perplexity Assistantを使用するには、[Perplexity](https://www.perplexity.ai/account/api/keys)でAPIキーを生成してください。"
+      },
+      "model": {
+        "data": {
+          "model": "モデル",
+          "language": "言語",
+          "custom_system_prompt": "カスタムシステムプロンプト"
+        },
+        "data_description": {
+          "model": "使用するPerplexity Assistantのモデルを選択します。モデルによりコストが異なる場合があります（詳細: [APIコスト](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)）。",
+          "language": "Perplexity Assistantが応答する言語を選択します。",
+          "custom_system_prompt": "各リクエストでのアシスタントの動作を誘導するためのカスタム指示を提供します。"
+        },
+        "description": "モデル、言語、カスタムシステムプロンプトを設定できます。"
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "最大トークン数",
+          "creativity": "創造性",
+          "diversity": "多様性",
+          "frequency_penalty": "頻度ペナルティ"
+        },
+        "data_description": {
+          "max_tokens": "アシスタントの応答の長さ（トークン数）を制限します。",
+          "creativity": "応答の創造性レベルを制御します。低い値（約0.1）は事実重視、高い値（約0.9）は創造的になります。",
+          "diversity": "生成される応答の多様性を調整します。低い値（約0.1）は集中、高い値（約0.9）は多様性増加。",
+          "frequency_penalty": "応答内の繰り返しを減らします。高い値（約1.0）は繰り返しを強く抑制し、低い値（約0.0）は抑制しません。"
+        },
+        "description": "モデルパラメータを調整してアシスタントの動作を微調整します。"
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Home Assistantエンティティへのアクセスを許可",
+          "allow_actions_on_entities": "Home Assistantエンティティへのアクションを許可",
+          "entities_summary_refresh_rate": "エンティティ概要の更新頻度",
+          "enable_web_search": "最新情報取得のためWeb検索を有効化",
+          "notify_response": "各応答を通知",
+          "enable_response_on_speakers": "スピーカーで応答を再生",
+          "tts_engine": "TTSエンジン"
+        },
+        "data_description": {
+          "allow_entities_access": "よりコンテキストに沿った応答のため、Home Assistantのエンティティへアクセスを許可します。",
+          "allow_actions_on_entities": "照明を点灯したりサーモスタットを調整したりするアクションを許可します。",
+          "entities_summary_refresh_rate": "エンティティ状態概要を更新する頻度（秒単位）を設定します。",
+          "enable_web_search": "最新情報取得のためWeb検索を有効化しますが、関連性が低下する場合があります。",
+          "notify_response": "有効時、生成された各応答を通知します。",
+          "enable_response_on_speakers": "接続されたスピーカーで応答を再生します（TTS設定と正確な位置特定が必要）。",
+          "tts_engine": "音声応答用のTTSエンジンを選択します。"
+        },
+        "description": "権限と許可を変更します。"
+      }
+    }
+  }
+}

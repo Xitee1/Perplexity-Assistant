@@ -1,0 +1,142 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "API 密钥"
+        },
+        "data_description": {
+          "api_key": "提供的 API 密钥用于对 Perplexity AI 服务的请求进行身份验证。格式：pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "要使用 Perplexity Assistant，请在 [Perplexity](https://www.perplexity.ai/account/api/keys) 生成 API 密钥。"
+      },
+      "model": {
+        "data": {
+          "model": "模型",
+          "language": "语言",
+          "custom_system_prompt": "自定义系统提示",
+          "advanced_configuration": "高级配置"
+        },
+        "data_description": {
+          "model": "选择用于 Perplexity Assistant 的模型。相关费用可能因所选模型而异（更多信息：[API 成本](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)）。",
+          "language": "选择 Perplexity Assistant 的应答语言。",
+          "custom_system_prompt": "提供自定义指令，以便针对每次请求引导助手的行为。"
+        },
+        "description": "您可以自定义模型、语言，并为 Perplexity Assistant 添加自定义系统提示。"
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "最大令牌数",
+          "creativity": "创造力",
+          "diversity": "多样性",
+          "frequency_penalty": "重复惩罚"
+        },
+        "data_description": {
+          "max_tokens": "限制助手回答的长度（以令牌数计）。",
+          "creativity": "控制回答的创造性程度。较低的值（约 0.1）更偏向事实；较高的值（约 0.9）更具创造性。",
+          "diversity": "调整生成回答的多样性。较低的值（约 0.1）更聚焦；较高的值（约 0.9）多样性更高。",
+          "frequency_penalty": "减少回答中的重复。较高的值（约 1.0）对重复惩罚更强；较低的值（约 0.0）几乎不惩罚。"
+        },
+        "description": "自定义模型参数以微调助手行为。"
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "允许访问 Home Assistant 实体",
+          "entities_summary_refresh_rate": "实体摘要刷新频率",
+          "allow_actions_on_entities": "允许对 Home Assistant 实体执行操作",
+          "enable_web_search": "启用网络搜索以获取最新信息",
+          "notify_response": "对每个响应发送通知",
+          "enable_response_on_speakers": "通过音箱播放回答",
+          "tts_engine": "TTS 引擎"
+        },
+        "data_description": {
+          "allow_entities_access": "允许 Perplexity Assistant 访问您 Home Assistant 实例中的实体，以提供更具上下文的回答。",
+          "entities_summary_refresh_rate": "设置助手更新实体状态摘要的频率（单位：秒）。",
+          "allow_actions_on_entities": "允许助手对实体执行操作，例如打开灯或调整恒温器。",
+          "enable_web_search": "启用网络搜索以获取最新信息，但有时可能降低回答相关性。",
+          "notify_response": "如果启用，助手将对其生成的每个回答发送通知。",
+          "enable_response_on_speakers": "允许通过连接到 Home Assistant 的音箱播放回答（需要配置 TTS 且助手能正确定位您）。",
+          "tts_engine": "选择用于语音回答的 TTS 引擎。"
+        },
+        "description": "定义 Perplexity Assistant 的授权和权限。"
+      }
+    },
+    "error": {
+      "invalid_api_key": "提供的 API 密钥无效。请检查后重试。",
+      "invalid_api_key_length": "API 密钥长度必须正好为 53 个字符。请检查后重试。",
+      "max_length_exceeded": "自定义系统提示不能超过 250 个字符。请缩短后重试。",
+      "cannot_connect": "无法连接到 Perplexity AI 服务。请检查网络连接后重试。",
+      "unknown": "发生未知错误。请稍后再试。"
+    },
+    "abort": {
+      "single_instance_allowed": "仅允许一个 Perplexity Assistant 实例。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "menu": "选择要修改的设置"
+        }
+      },
+      "api": {
+        "data": {
+          "api_key": "API 密钥"
+        },
+        "data_description": {
+          "api_key": "提供的 API 密钥用于对 Perplexity AI 服务的请求进行身份验证。格式：pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "要使用 Perplexity Assistant，请在 [Perplexity](https://www.perplexity.ai/account/api/keys) 生成 API 密钥。"
+      },
+      "model": {
+        "data": {
+          "model": "模型",
+          "language": "语言",
+          "custom_system_prompt": "自定义系统提示"
+        },
+        "data_description": {
+          "model": "选择用于 Perplexity Assistant 的模型。相关费用可能因所选模型而异（更多信息：[API 成本](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)）。",
+          "language": "选择 Perplexity Assistant 的应答语言。",
+          "custom_system_prompt": "提供自定义指令，以便针对每次请求引导助手的行为。"
+        },
+        "description": "您可以自定义模型、语言，并添加自定义系统提示。"
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "最大令牌数",
+          "creativity": "创造力",
+          "diversity": "多样性",
+          "frequency_penalty": "重复惩罚"
+        },
+        "data_description": {
+          "max_tokens": "限制助手回答的长度（以令牌数计）。",
+          "creativity": "控制回答的创造性程度。较低的值（约 0.1）更偏向事实；较高的值（约 0.9）更具创造性。",
+          "diversity": "调整生成回答的多样性。较低的值（约 0.1）更聚焦；较高的值（约 0.9）多样性更高。",
+          "frequency_penalty": "减少回答中的重复。较高的值（约 1.0）对重复惩罚更强；较低的值（约 0.0）几乎不惩罚。"
+        },
+        "description": "自定义模型参数以微调助手行为。"
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "允许访问 Home Assistant 实体",
+          "allow_actions_on_entities": "允许对 Home Assistant 实体执行操作",
+          "entities_summary_refresh_rate": "实体摘要刷新频率",
+          "enable_web_search": "启用网络搜索以获取最新信息",
+          "notify_response": "对每个响应发送通知",
+          "enable_response_on_speakers": "通过音箱播放回答",
+          "tts_engine": "TTS 引擎"
+        },
+        "data_description": {
+          "allow_entities_access": "允许 Perplexity Assistant 访问您 Home Assistant 实例中的实体，以提供更具上下文的回答。",
+          "entities_summary_refresh_rate": "设置助手更新实体状态摘要的频率（单位：秒）。",
+          "allow_actions_on_entities": "允许助手对实体执行操作，例如打开灯或调整恒温器。",
+          "enable_web_search": "启用网络搜索以获取最新信息，但有时可能降低回答相关性。",
+          "notify_response": "如果启用，助手将对其生成的每个回答发送通知。",
+          "enable_response_on_speakers": "允许通过连接到 Home Assistant 的音箱播放回答（需要配置 TTS 且助手能正确定位您）。",
+          "tts_engine": "选择用于语音回答的 TTS 引擎。"
+        },
+        "description": "修改 Perplexity Assistant 的授权和权限。"
+      }
+    }
+  }
+}

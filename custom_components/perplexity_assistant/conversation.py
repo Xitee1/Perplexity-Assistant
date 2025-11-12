@@ -70,7 +70,7 @@ class PerplexityAgent(AbstractConversationAgent):
         Returns:
             any: Configuration value or default.
         """
-        return self.config_entry.options.get(key) or self.config_entry.data.get(key, default)
+        return self.config_entry.options.get(key, self.config_entry.data.get(key, default))
 
     @property
     def attribution(self) -> str:
@@ -80,7 +80,7 @@ class PerplexityAgent(AbstractConversationAgent):
     @property
     def supported_languages(self) -> list[str]:
         """Return the list of supported languages."""
-        return SUPPORTED_LANGUAGES
+        return [lang['value'] for lang in SUPPORTED_LANGUAGES]
 
     def _generate_entities_summary(self) -> str:
         """Generate a summary of Home Assistant entities for context.
@@ -138,8 +138,7 @@ class PerplexityAgent(AbstractConversationAgent):
             ConversationResult: The response formatted for Home Assistant.
         """
         # Get config entry options
-        entities_summary: str = "Access not allowed." if not self._get_config(CONF_ALLOW_ENTITIES_ACCESS, False) else self._generate_entities_summary()
-    
+        entities_summary: str = "Access not allowed." if not self._get_config(CONF_ALLOW_ENTITIES_ACCESS, DEFAULT_ALLOW_ENTITIES_ACCESS) else self._generate_entities_summary()
         prompt: str = user_input.text
         user_name = "UNKNOWN"
 
@@ -153,21 +152,32 @@ class PerplexityAgent(AbstractConversationAgent):
             "User-Agent": f"HomeAssistant/{HA_VERSION}"
         }
         
+        SYSTEM_STATUS = f"""
+            DATE & TIME: {datetime.now()}
+            HOME ASSISTANT VERSION: {HA_VERSION}
+            ENTITIES: {entities_summary}
+            YOUR NAME IS {self.agent_name}
+            AUTHORIZATIONS
+                - enable_vocal_notifications={self._get_config(CONF_ENABLE_RESPONSE_ON_SPEAKERS, DEFAULT_ENABLE_RESPONSE_ON_SPEAKERS)}
+                - enable_actions_on_entities={self._get_config(CONF_ALLOW_ACTIONS_ON_ENTITIES, DEFAULT_ALLOW_ACTIONS_ON_ENTITIES)}
+            USER NAME: {user_name}
+            USER LANGUAGE: {self._get_config(CONF_LANGUAGE, 'en')}
+            """
+        
         payload = {
             "model": self._get_config(CONF_MODEL, DEFAULT_MODEL),
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "system", "content": f"HOME ASSISTANT VERSION: {HA_VERSION} | Summary Home Assistant's entities for context: {entities_summary} | YOUR NAME IS {self.agent_name}"},
-                {"role": "system", "content": f"USER NAME: {user_name} | USER LANGUAGE: {self._get_config(CONF_LANGUAGE, 'en')}."},
+                {"role": "system", "content": SYSTEM_STATUS},
                 {"role": "user", "content": f"USER SYSTEM PROMPT: {self._get_config(CONF_CUSTOM_SYSTEM_PROMPT, '')} | USER PROMPT: {prompt}"}
             ],
             "stream": False,
-            "max_tokens": MAX_TOKENS,
-            "temperature": CREATIVITY,
-            "top_p": DIVERSITY,
-            "frequency_penalty": FREQUENCY_PENALTY,
+            "max_tokens": self._get_config(CONF_MAX_TOKENS, DEFAULT_MAX_TOKENS),
+            "temperature": self._get_config(CONF_CREATIVITY, DEFAULT_CREATIVITY),
+            "top_p": self._get_config(CONF_DIVERSITY, DEFAULT_DIVERSITY),
+            "frequency_penalty": self._get_config(CONF_FREQUENCY_PENALTY, DEFAULT_FREQUENCY_PENALTY),
             "response_format": self.RESPONSE_FORMAT,
-            "disable_search": not self._get_config(CONF_ENABLE_WEBSEARCH, False)
+            "disable_search": not self._get_config(CONF_ENABLE_WEBSEARCH, DEFAULT_ENABLE_WEBSEARCH)
         }
 
         # Send the request to Perplexity API
@@ -193,7 +203,7 @@ class PerplexityAgent(AbstractConversationAgent):
                         alltime_sensor: AlltimeBillSensor = self.hass.data.get("perplexity_assistant_sensors", {}).get("alltime_bill_sensor")
                         alltime_sensor.increment_cost(cost) if alltime_sensor else None
                         
-                        if self._get_config(CONF_NOTIFY_RESPONSE, False):
+                        if self._get_config(CONF_NOTIFY_RESPONSE, DEFAULT_NOTIFY_RESPONSE):
                             _LOGGER.debug(f"Sending notification for Perplexity response.")
                             self.hass.async_create_task(
                                 self.hass.services.async_call(

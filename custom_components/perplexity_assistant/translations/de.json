@@ -1,0 +1,142 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "API-Schlüssel"
+        },
+        "data_description": {
+          "api_key": "Der bereitgestellte API-Schlüssel wird verwendet, um Anfragen beim Perplexity-AI-Dienst zu authentifizieren. Format: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Um Perplexity Assistant zu nutzen, musst du einen API-Schlüssel über [Perplexity](https://www.perplexity.ai/account/api/keys) erstellen."
+      },
+      "model": {
+        "data": {
+          "model": "Modell",
+          "language": "Sprache",
+          "custom_system_prompt": "Benutzerdefinierte Systemanweisung",
+          "advanced_configuration": "Erweiterte Konfiguration"
+        },
+        "data_description": {
+          "model": "Wähle das Modell für den Perplexity Assistant. Die Kosten können je nach Modell variieren (weitere Informationen: [API-Kosten](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Wähle die Sprache, in der Perplexity Assistant antwortet.",
+          "custom_system_prompt": "Gib benutzerdefinierte Anweisungen an, um das Verhalten des Perplexity Assistant pro Anfrage zu steuern."
+        },
+        "description": "Du kannst Modell, Sprache und eine benutzerdefinierte Systemanweisung konfigurieren."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "Maximale Tokens",
+          "creativity": "Kreativität",
+          "diversity": "Diversität",
+          "frequency_penalty": "Wiederholungsstrafe"
+        },
+        "data_description": {
+          "max_tokens": "Begrenzt die Länge der Antwort des Assistenten in Tokens.",
+          "creativity": "Steuert den Grad an Kreativität. Niedrige Werte (nahe 0,1) liefern sachlichere Antworten; höhere Werte (nahe 0,9) kreativere.",
+          "diversity": "Regelt die Vielfalt der generierten Antworten. Niedrige Werte (nahe 0,1) sind fokussierter; höhere Werte (nahe 0,9) erhöhen die Vielfalt.",
+          "frequency_penalty": "Verringert Wiederholungen in Antworten. Höhere Werte (nahe 1,0) bestrafen Wiederholungen stärker; niedrigere Werte (nahe 0,0) kaum."
+        },
+        "description": "Passe Modellparameter an, um das Verhalten des Assistenten zu verfeinern."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Zugriff auf Home-Assistant-Entitäten erlauben",
+          "entities_summary_refresh_rate": "Aktualisierungsrate der Entitätsübersicht",
+          "allow_actions_on_entities": "Aktionen auf Home-Assistant-Entitäten erlauben",
+          "enable_web_search": "Websuche für aktuelle Informationen aktivieren",
+          "notify_response": "Jede Antwort als Benachrichtigung melden",
+          "enable_response_on_speakers": "Antworten über Lautsprecher ausgeben",
+          "tts_engine": "TTS-Engine"
+        },
+        "data_description": {
+          "allow_entities_access": "Ermöglicht Perplexity Assistant den Zugriff auf Entitäten deiner Home-Assistant-Instanz, um kontextbezogenere Antworten zu liefern.",
+          "entities_summary_refresh_rate": "Legt fest, wie oft die Übersicht der Entitätszustände aktualisiert wird (in Sekunden).",
+          "allow_actions_on_entities": "Erlaubt dem Assistenten, Aktionen auf Entitäten auszuführen, z. B. Lichter einschalten oder Thermostat anpassen.",
+          "enable_web_search": "Aktiviert Websuche für aktuelle Informationen; dies kann gelegentlich die Relevanz reduzieren.",
+          "notify_response": "Wenn aktiviert, erhältst du für jede generierte Antwort eine Benachrichtigung.",
+          "enable_response_on_speakers": "Ermöglicht die Wiedergabe von Antworten über verbundene Lautsprecher (TTS erforderlich und korrekte Lokalisierung).",
+          "tts_engine": "Wähle die TTS-Engine für Sprachausgaben."
+        },
+        "description": "Lege Berechtigungen und Freigaben für Perplexity Assistant fest."
+      }
+    },
+    "error": {
+      "invalid_api_key": "Der angegebene API-Schlüssel ist ungültig. Bitte prüfen und erneut versuchen.",
+      "invalid_api_key_length": "Der API-Schlüssel muss genau 53 Zeichen lang sein. Bitte prüfen und erneut versuchen.",
+      "max_length_exceeded": "Die benutzerdefinierte Systemanweisung darf 250 Zeichen nicht überschreiten. Bitte kürzen und erneut versuchen.",
+      "cannot_connect": "Verbindung zum Perplexity-AI-Dienst nicht möglich. Bitte Internetverbindung prüfen und erneut versuchen.",
+      "unknown": "Ein unbekannter Fehler ist aufgetreten. Bitte später erneut versuchen."
+    },
+    "abort": {
+      "single_instance_allowed": "Es ist nur eine einzelne Instanz von Perplexity Assistant erlaubt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "menu": "Wähle die zu ändernden Einstellungen"
+        }
+      },
+      "api": {
+        "data": {
+          "api_key": "API-Schlüssel"
+        },
+        "data_description": {
+          "api_key": "Der bereitgestellte API-Schlüssel wird verwendet, um Anfragen beim Perplexity-AI-Dienst zu authentifizieren. Format: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Um Perplexity Assistant zu nutzen, musst du einen API-Schlüssel über [Perplexity](https://www.perplexity.ai/account/api/keys) erstellen."
+      },
+      "model": {
+        "data": {
+          "model": "Modell",
+          "language": "Sprache",
+          "custom_system_prompt": "Benutzerdefinierte Systemanweisung"
+        },
+        "data_description": {
+          "model": "Wähle das Modell für den Perplexity Assistant. Die Kosten können je nach Modell variieren (weitere Informationen: [API-Kosten](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Wähle die Sprache, in der Perplexity Assistant antwortet.",
+          "custom_system_prompt": "Gib benutzerdefinierte Anweisungen an, um das Verhalten des Assistenten pro Anfrage zu steuern."
+        },
+        "description": "Du kannst Modell, Sprache und eine benutzerdefinierte Systemanweisung konfigurieren."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "Maximale Tokens",
+          "creativity": "Kreativität",
+          "diversity": "Diversität",
+          "frequency_penalty": "Wiederholungsstrafe"
+        },
+        "data_description": {
+          "max_tokens": "Begrenzt die Länge der Antwort des Assistenten in Tokens.",
+          "creativity": "Steuert den Grad an Kreativität. Niedrige Werte (nahe 0,1) liefern sachlichere Antworten; höhere Werte (nahe 0,9) kreativere.",
+          "diversity": "Regelt die Vielfalt der generierten Antworten. Niedrige Werte (nahe 0,1) sind fokussierter; höhere Werte (nahe 0,9) erhöhen die Vielfalt.",
+          "frequency_penalty": "Verringert Wiederholungen in Antworten. Höhere Werte (nahe 1,0) bestrafen Wiederholungen stärker; niedrigere Werte (nahe 0,0) kaum."
+        },
+        "description": "Passe Modellparameter an, um das Verhalten des Assistenten zu verfeinern."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Zugriff auf Home-Assistant-Entitäten erlauben",
+          "allow_actions_on_entities": "Aktionen auf Home-Assistant-Entitäten erlauben",
+          "entities_summary_refresh_rate": "Aktualisierungsrate der Entitätsübersicht",
+          "enable_web_search": "Websuche für aktuelle Informationen aktivieren",
+          "notify_response": "Jede Antwort als Benachrichtigung melden",
+          "enable_response_on_speakers": "Antworten über Lautsprecher ausgeben",
+          "tts_engine": "TTS-Engine"
+        },
+        "data_description": {
+          "allow_entities_access": "Ermöglicht Perplexity Assistant den Zugriff auf Entitäten deiner Home-Assistant-Instanz, um kontextbezogenere Antworten zu liefern.",
+          "entities_summary_refresh_rate": "Legt fest, wie oft die Übersicht der Entitätszustände aktualisiert wird (in Sekunden).",
+          "allow_actions_on_entities": "Erlaubt dem Assistenten, Aktionen auf Entitäten auszuführen, z. B. Lichter einschalten oder Thermostat anpassen.",
+          "enable_web_search": "Aktiviert Websuche für aktuelle Informationen; dies kann gelegentlich die Relevanz reduzieren.",
+          "notify_response": "Wenn aktiviert, erhältst du für jede generierte Antwort eine Benachrichtigung.",
+          "enable_response_on_speakers": "Ermöglicht die Wiedergabe von Antworten über verbundene Lautsprecher (TTS erforderlich und korrekte Lokalisierung).",
+          "tts_engine": "Wähle die TTS-Engine für Sprachausgaben."
+        },
+        "description": "Berechtigungen und Freigaben für Perplexity Assistant anpassen."
+      }
+    }
+  }
+}
