@@ -1,12 +1,12 @@
 {
   "domain": "perplexity_assistant",
   "name": "Perplexity Assistant",
-  "documentation": "https://github.com/Pekulll/perplexity-assistant",
-  "issue_tracker": "https://github.com/Pekulll/perplexity-assistant/issues",
-  "requirements": ["requests", "aiohttp", "pydantic"],
   "codeowners": ["@Pekulll"],
   "config_flow": true,
-  "version": "1.2.0",
+  "documentation": "https://github.com/Pekulll/perplexity-assistant",
   "integration_type": "service",
-  "iot_class": "cloud_polling"
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Pekulll/perplexity-assistant/issues",
+  "requirements": ["requests", "aiohttp", "pydantic"],
+  "version": "1.2.0"
 }

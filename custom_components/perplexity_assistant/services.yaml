@@ -6,16 +6,3 @@ ask_perplexity:
       example: What is the weather like in Paris?
       default: What is the weather like in Paris?
       required: true
-  advanced_fields:
-    model:
-      example: sonar
-      default: sonar
-      required: false
-      selector:
-        select:
-          options:
-            - sonar
-            - sonar-pro
-            - sonar-reasoning
-            - sonar-reasoning-pro
-            - sonar-deep-research
