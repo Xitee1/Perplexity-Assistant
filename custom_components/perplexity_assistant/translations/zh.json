@@ -72,6 +72,17 @@
       "single_instance_allowed": "仅允许一个 Perplexity Assistant 实例。"
     }
   },
+  "selector": {
+    "model_options": {
+      "options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
+    }
+  },
   "options": {
     "step": {
       "init": {

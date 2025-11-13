@@ -72,6 +72,17 @@
       "single_instance_allowed": "Apenas uma instância do Perplexity Assistant é permitida."
     }
   },
+  "selector": {
+    "model_options": {
+      "options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
+    }
+  },
   "options": {
     "step": {
       "init": {
