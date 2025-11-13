@@ -70,15 +70,6 @@
         },
         "abort": {
             "single_instance_allowed": "Only a single instance of Perplexity Assistant is allowed."
-        },
-        "selector": {
-            "model_options": {
-                "sonar": "Sonar",
-                "sonar-pro": "Sonar Pro",
-                "sonar-reasoning": "Sonar Reasoning",
-                "sonar-reasoning-pro": "Sonar Reasoning Pro",
-                "sonar-deep-research": "Sonar Deep Research"
-            }
         }
     },
     "options": {

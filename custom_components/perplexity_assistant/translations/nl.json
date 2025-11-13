@@ -70,15 +70,6 @@
     },
     "abort": {
       "single_instance_allowed": "Slechts één instantie van Perplexity Assistant is toegestaan."
-    },
-    "selector": {
-      "model_options": {
-        "sonar": "Sonar",
-        "sonar-pro": "Sonar Pro",
-        "sonar-reasoning": "Sonar Reasoning",
-        "sonar-reasoning-pro": "Sonar Reasoning Pro",
-        "sonar-deep-research": "Sonar Deep Research"
-      }
     }
   },
   "options": {
