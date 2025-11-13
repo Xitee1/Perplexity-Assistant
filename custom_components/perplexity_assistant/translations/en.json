@@ -70,6 +70,15 @@
         },
         "abort": {
             "single_instance_allowed": "Only a single instance of Perplexity Assistant is allowed."
+        },
+        "selector": {
+            "model_options": {
+                "sonar": "Sonar",
+                "sonar-pro": "Sonar Pro",
+                "sonar-reasoning": "Sonar Reasoning",
+                "sonar-reasoning-pro": "Sonar Reasoning Pro",
+                "sonar-deep-research": "Sonar Deep Research"
+            }
         }
     },
     "options": {
@@ -136,6 +145,35 @@
                     "tts_engine": "Select the TTS engine to be used for voice responses."
                 },
                 "description": "Modify the authorizations and permissions for the Perplexity Assistant."
+            }
+        }
+    },
+    "services": {
+        "ask": {
+            "name": "Ask a question to Perplexity Assistant",
+            "description": "Some options may override global configuration settings for this specific request.",
+            "fields": {
+                "prompt": {
+                    "name": "Prompt",
+                    "description": "The text of the question or request you want to ask the Perplexity Assistant.",
+                    "example": "Turn off the living room lights."
+                },
+                "model": {
+                    "name": "Model",
+                    "description": "WARNING: OVERRIDES CONFIGURATION SETTINGS. Select the Perplexity model to use for this request. If not specified, the model configured in the integration will be used."
+                },
+                "enable_websearch": {
+                    "name": "Enable Web Search",
+                    "description": "WARNING: OVERRIDES CONFIGURATION SETTINGS. If enabled, allows this request to use Perplexity's web search even if disabled in integration configuration. If disabled, web search will be forced off for this request."
+                },
+                "execute_actions": {
+                    "name": "Execute detected actions",
+                    "description": "If enabled, actions detected in the response will automatically be executed. This does not override the global configuration allowing entity actions."
+                },
+                "force_actions_execution": {
+                    "name": "Force actions execution",
+                    "description": "WARNING: OVERRIDES CONFIGURATION SETTINGS. If enabled, actions detected in the response will automatically be executed."
+                }
             }
         }
     }

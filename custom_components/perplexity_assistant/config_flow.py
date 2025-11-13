@@ -5,7 +5,9 @@ from homeassistant import config_entries
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.components import tts
 from homeassistant.core import callback
-from homeassistant.helpers.selector import SelectSelector, BooleanSelector, NumberSelector, SelectSelectorConfig, SelectSelectorMode, TextSelector, TextSelectorConfig, TextSelectorType
+from homeassistant.helpers.selector import (SelectSelector, BooleanSelector, NumberSelector,
+                                            SelectSelectorConfig, SelectSelectorMode, TextSelector,
+                                            TextSelectorConfig, TextSelectorType)
 
 from .const import *
 
@@ -148,7 +150,7 @@ class PerplexityConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 autocomplete="off",
             )
         )
-        
+
         # Define the data schema for the form
         STEP_USER_DATA_SCHEMA = vol.Schema({
             vol.Optional(CONF_ALLOW_ENTITIES_ACCESS, default=DEFAULT_ALLOW_ENTITIES_ACCESS): BooleanSelector(),

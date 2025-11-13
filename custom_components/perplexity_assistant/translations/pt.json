@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "Apenas uma instância do Perplexity Assistant é permitida."
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "Selecione o motor TTS para respostas de voz."
         },
         "description": "Modificar autorizações e permissões do Perplexity Assistant."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Fazer uma pergunta ao Perplexity Assistant",
+      "description": "Algumas opções podem substituir a configuração global para esta solicitação específica.",
+      "fields": {
+        "prompt": {
+          "name": "Prompt",
+          "description": "O texto da pergunta ou solicitação que você deseja fazer ao Perplexity Assistant.",
+          "example": "Desliga as luzes da sala de estar."
+        },
+        "model": {
+          "name": "Modelo",
+          "description": "AVISO: SOBRESCREVE A CONFIGURAÇÃO. Selecione o modelo Perplexity para usar nesta solicitação. Se não especificado, será usado o modelo configurado na integração."
+        },
+        "enable_websearch": {
+          "name": "Ativar busca na Web",
+          "description": "AVISO: SOBRESCREVE A CONFIGURAÇÃO. Se ativado, esta solicitação pode usar a busca na Web do Perplexity mesmo se desativada na configuração da integração. Se desativado, a busca será forçadamente desativada para esta solicitação."
+        },
+        "execute_actions": {
+          "name": "Executar ações detectadas",
+          "description": "Se ativado, as ações detectadas na resposta serão executadas automaticamente. Isto não substitui a configuração global que permite ações em entidades."
+        },
+        "force_actions_execution": {
+          "name": "Forçar execução de ações",
+          "description": "AVISO: SOBRESCREVE A CONFIGURAÇÃO. Se ativado, as ações detectadas na resposta serão executadas automaticamente."
+        }
       }
     }
   }

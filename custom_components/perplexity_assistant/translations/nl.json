@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "Slechts één instantie van Perplexity Assistant is toegestaan."
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "Selecteer de TTS-engine voor spraakantwoorden."
         },
         "description": "Pas de toestemmingen en rechten voor Perplexity Assistant aan."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Stel een vraag aan Perplexity Assistant",
+      "description": "Sommige opties kunnen de globale configuratie voor deze specifieke aanvraag overschrijven.",
+      "fields": {
+        "prompt": {
+          "name": "Prompt",
+          "description": "De tekst van de vraag of het verzoek dat je aan Perplexity Assistant wilt stellen.",
+          "example": "Schakel de woonkamerlichten uit."
+        },
+        "model": {
+          "name": "Model",
+          "description": "WAARSCHUWING: OVERSCHRIJFT CONFIGURATIE. Selecteer het Perplexity-model voor deze aanvraag. Indien niet opgegeven wordt het in de integratie geconfigureerde model gebruikt."
+        },
+        "enable_websearch": {
+          "name": "Webzoekopdracht inschakelen",
+          "description": "WAARSCHUWING: OVERSCHRIJFT CONFIGURATIE. Indien ingeschakeld kan deze aanvraag de webzoekfunctie gebruiken ook als deze in de integratie is uitgeschakeld. Indien uitgeschakeld wordt webzoekopdracht voor deze aanvraag geforceerd uitgeschakeld."
+        },
+        "execute_actions": {
+          "name": "Gedetecteerde acties uitvoeren",
+          "description": "Indien ingeschakeld worden acties die in het antwoord worden gedetecteerd automatisch uitgevoerd. Dit overschrijft niet de globale instelling die acties toelaat."
+        },
+        "force_actions_execution": {
+          "name": "Uitvoering van acties afdwingen",
+          "description": "WAARSCHUWING: OVERSCHRIJFT CONFIGURATIE. Indien ingeschakeld worden gedetecteerde acties in het antwoord automatisch uitgevoerd."
+        }
       }
     }
   }

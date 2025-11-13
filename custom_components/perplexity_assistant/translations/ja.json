@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "Perplexity Assistantのインスタンスは1つのみ許可されます。"
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "音声応答用のTTSエンジンを選択します。"
         },
         "description": "権限と許可を変更します。"
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Perplexity Assistant に質問する",
+      "description": "一部のオプションはこの特定のリクエストでグローバル設定を上書きします。",
+      "fields": {
+        "prompt": {
+          "name": "プロンプト",
+          "description": "Perplexity Assistant に送信したい質問または依頼のテキストです。",
+          "example": "リビングの照明を消して。"
+        },
+        "model": {
+          "name": "モデル",
+          "description": "警告: 設定を上書きします。このリクエストで使用する Perplexity モデルを選択してください。未指定の場合は統合で設定されたモデルが使われます。"
+        },
+        "enable_websearch": {
+          "name": "Web検索を有効化",
+          "description": "警告: 設定を上書きします。有効な場合、このリクエストは統合設定で無効でも Web 検索を利用できます。無効な場合、このリクエストでは Web 検索が強制的に無効になります。"
+        },
+        "execute_actions": {
+          "name": "検出されたアクションを実行",
+          "description": "有効な場合、応答内で検出されたアクションが自動的に実行されます。これはエンティティ操作を許可するグローバル設定を上書きしません。"
+        },
+        "force_actions_execution": {
+          "name": "アクションの実行を強制",
+          "description": "警告: 設定を上書きします。有効な場合、応答内で検出されたアクションが自動的に実行されます。"
+        }
       }
     }
   }

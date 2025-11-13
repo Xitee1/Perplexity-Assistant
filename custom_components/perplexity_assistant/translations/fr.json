@@ -70,6 +70,15 @@
         },
         "abort": {
             "single_instance_allowed": "Une seule instance de l'assistant Perplexity est autorisée."
+        },
+        "selector": {
+            "model_options": {
+                "sonar": "Sonar",
+                "sonar-pro": "Sonar Pro",
+                "sonar-reasoning": "Sonar Reasoning",
+                "sonar-reasoning-pro": "Sonar Reasoning Pro",
+                "sonar-deep-research": "Sonar Deep Research"
+            }
         }
     },
     "options": {
@@ -145,6 +154,35 @@
         },
         "abort": {
             "single_instance_allowed": "Une seule instance de l'assistant Perplexity est autorisée."
+        }
+    },
+    "services": {
+        "ask": {
+            "name": "Poser une question à l'assistant Perplexity",
+            "description": "Certaines options peuvent remplacer les paramètres de configuration globaux pour cette requête spécifique.",
+            "fields": {
+                "prompt": {
+                    "name": "Invite",
+                    "description": "Le texte de la question ou de la demande que vous souhaitez poser à l'assistant Perplexity.",
+                    "example": "Éteins les lumières du salon."
+                },
+                "model": {
+                    "name": "Modèle",
+                    "description": "AVERTISSEMENT : REMPLACE LES PARAMÈTRES DE CONFIGURATION. Sélectionnez le modèle Perplexity à utiliser pour cette requête. Si non spécifié, le modèle configuré dans l'intégration sera utilisé."
+                },
+                "enable_websearch": {
+                    "name": "Activer la recherche Web",
+                    "description": "AVERTISSEMENT : REMPLACE LES PARAMÈTRES DE CONFIGURATION. Si activé, permet à cette requête d'utiliser la recherche Web de Perplexity même si elle est désactivée dans la configuration de l'intégration. Si désactivé, la recherche Web sera forcée hors de cette requête."
+                },
+                "execute_actions": {
+                    "name": "Exécuter les actions détectées",
+                    "description": "Si activé, les actions détectées dans la réponse seront automatiquement exécutées. Cela ne remplace cependant pas la configuration globale pour autoriser les actions sur les entités."
+                },
+                "force_actions_execution": {
+                    "name": "Forcer l'exécution des actions",
+                    "description": "AVERTISSEMENT : REMPLACE LES PARAMÈTRES DE CONFIGURATION. Si activé, les actions détectées dans la réponse seront automatiquement exécutées."
+                }
+            }
         }
     }
 }

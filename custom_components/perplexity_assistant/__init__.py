@@ -5,6 +5,7 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.components import conversation as ha_conversation
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 from typing import Any
 
@@ -30,6 +31,27 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """
     _LOGGER.debug("Setup of the Perplexity Assistant module")
     
+    # Create the Perplexity conversation agent
+    entry = next(iter(hass.config_entries.async_entries(DOMAIN)), None)
+    
+    if entry is None:
+        _LOGGER.error("No config entry found for Perplexity Assistant during setup")
+        return False
+    
+    agent = PerplexityAgent(hass, entry.entry_id)
+    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = agent
+    
+    # Register the conversation agent and service
+    ha_conversation.async_set_agent(hass, entry, agent)
+    service_schema = vol.Schema({
+        vol.Required("prompt"): cv.string,
+        vol.Optional("model"): cv.string,
+        vol.Optional("enable_websearch"): cv.boolean,
+        vol.Optional("execute_actions"): cv.boolean,
+        vol.Optional("force_actions_execution"): cv.boolean
+    })
+    hass.services.async_register(DOMAIN, "ask", agent.async_ask, schema=service_schema, supports_response="optional")
+    
     return True
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
@@ -45,14 +67,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         bool: True if setup is successful.
     """
     _LOGGER.debug("Setting up Perplexity Assistant from config entry")
-
-    # Create the Perplexity conversation agent
-    agent = PerplexityAgent(hass, entry.entry_id)
-    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = agent
-
-    # Register the conversation agent and service
-    ha_conversation.async_set_agent(hass, entry, agent)
-    hass.services.async_register(DOMAIN, "ask_perplexity", agent.async_ask, schema=vol.Schema({vol.Required("prompt"): str}))
 
     # Forward setup to sensor platform
     if entry.data.get("create_credit_sensor"):
@@ -75,7 +89,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     _LOGGER.debug("Unloading Perplexity Assistant config entry")
     
     hass.data.get(DOMAIN, {}).pop(entry.entry_id, None) # Remove agent from data
-    hass.services.async_remove(DOMAIN, "ask_perplexity") # Remove service
+    hass.services.async_remove(DOMAIN, "ask") # Remove service
 
     # Unload platforms
     await hass.config_entries.async_unload_platforms(entry, PLATFORMS)

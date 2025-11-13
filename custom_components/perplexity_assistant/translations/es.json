@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "Solo se permite una única instancia de Perplexity Assistant."
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "Selecciona el motor TTS a usar para las respuestas por voz."
         },
         "description": "Modifica las autorizaciones y permisos de Perplexity Assistant."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Hacer una pregunta a Perplexity Assistant",
+      "description": "Algunas opciones pueden sobrescribir la configuración global para esta solicitud específica.",
+      "fields": {
+        "prompt": {
+          "name": "Prompt",
+          "description": "El texto de la pregunta o petición que quieres hacer a Perplexity Assistant.",
+          "example": "Apaga las luces del salón."
+        },
+        "model": {
+          "name": "Modelo",
+          "description": "ADVERTENCIA: SOBRESCRIBE LA CONFIGURACIÓN. Selecciona el modelo de Perplexity para esta solicitud. Si no se especifica, se usará el modelo configurado en la integración."
+        },
+        "enable_websearch": {
+          "name": "Habilitar búsqueda web",
+          "description": "ADVERTENCIA: SOBRESCRIBE LA CONFIGURACIÓN. Si se activa, esta solicitud podrá usar la búsqueda web de Perplexity aunque esté desactivada en la configuración. Si se desactiva, la búsqueda web se forzará a estar desactivada en esta solicitud."
+        },
+        "execute_actions": {
+          "name": "Ejecutar acciones detectadas",
+          "description": "Si se activa, las acciones detectadas en la respuesta se ejecutarán automáticamente. Esto no sobrescribe la configuración global que permite acciones sobre entidades."
+        },
+        "force_actions_execution": {
+          "name": "Forzar ejecución de acciones",
+          "description": "ADVERTENCIA: SOBRESCRIBE LA CONFIGURACIÓN. Si se activa, las acciones detectadas en la respuesta se ejecutarán automáticamente."
+        }
       }
     }
   }

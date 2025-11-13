@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "仅允许一个 Perplexity Assistant 实例。"
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "选择用于语音回答的 TTS 引擎。"
         },
         "description": "修改 Perplexity Assistant 的授权和权限。"
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "向 Perplexity Assistant 提问",
+      "description": "某些选项可在此特定请求中覆盖全局配置。",
+      "fields": {
+        "prompt": {
+          "name": "提示词",
+          "description": "你想向 Perplexity Assistant 提出的提问或请求文本。",
+          "example": "关闭客厅的灯。"
+        },
+        "model": {
+          "name": "模型",
+          "description": "警告：覆盖配置。为此请求选择使用的 Perplexity 模型。若未指定，则使用集成中配置的模型。"
+        },
+        "enable_websearch": {
+          "name": "启用网页搜索",
+          "description": "警告：覆盖配置。启用后，此请求可使用 Perplexity 网页搜索（即使在集成配置中禁用）。禁用则强制此请求关闭网页搜索。"
+        },
+        "execute_actions": {
+          "name": "执行检测到的操作",
+          "description": "启用后，响应中检测到的操作将自动执行。这不会覆盖允许实体操作的全局配置。"
+        },
+        "force_actions_execution": {
+          "name": "强制执行操作",
+          "description": "警告：覆盖配置。启用后，响应中检测到的操作将自动执行。"
+        }
       }
     }
   }

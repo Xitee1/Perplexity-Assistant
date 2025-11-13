@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "Es ist nur eine einzelne Instanz von Perplexity Assistant erlaubt."
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "Wähle die TTS-Engine für Sprachausgaben."
         },
         "description": "Berechtigungen und Freigaben für Perplexity Assistant anpassen."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Eine Frage an Perplexity Assistant stellen",
+      "description": "Einige Optionen können die globale Konfiguration für diese spezifische Anfrage überschreiben.",
+      "fields": {
+        "prompt": {
+          "name": "Prompt",
+          "description": "Der Text der Frage oder Anforderung, die du dem Perplexity Assistant stellen möchtest.",
+          "example": "Schalte die Wohnzimmerlichter aus."
+        },
+        "model": {
+          "name": "Modell",
+          "description": "WARNUNG: ÜBERSCHREIBT DIE KONFIGURATION. Wähle das Perplexity-Modell für diese Anfrage. Wenn nicht angegeben, wird das in der Integration konfigurierte Modell verwendet."
+        },
+        "enable_websearch": {
+          "name": "Websuche aktivieren",
+          "description": "WARNUNG: ÜBERSCHREIBT DIE KONFIGURATION. Wenn aktiviert, kann diese Anfrage die Websuche von Perplexity nutzen, auch wenn sie in der Integration deaktiviert ist. Wenn deaktiviert, wird die Websuche für diese Anfrage erzwungen deaktiviert."
+        },
+        "execute_actions": {
+          "name": "Erkannte Aktionen ausführen",
+          "description": "Wenn aktiviert, werden erkannte Aktionen in der Antwort automatisch ausgeführt. Dies überschreibt nicht die globale Einstellung zur Aktivierung von Entitätsaktionen."
+        },
+        "force_actions_execution": {
+          "name": "Ausführung von Aktionen erzwingen",
+          "description": "WARNUNG: ÜBERSCHREIBT DIE KONFIGURATION. Wenn aktiviert, werden erkannte Aktionen in der Antwort automatisch ausgeführt."
+        }
       }
     }
   }

@@ -70,6 +70,15 @@
     },
     "abort": {
       "single_instance_allowed": "Perplexity Assistant 인스턴스는 하나만 허용됩니다."
+    },
+    "selector": {
+      "model_options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
     }
   },
   "options": {
@@ -136,6 +145,35 @@
           "tts_engine": "음성 응답에 사용할 TTS 엔진을 선택하세요."
         },
         "description": "권한과 허용 범위를 변경합니다."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Perplexity Assistant에게 질문하기",
+      "description": "일부 옵션은 이 개별 요청에 대해 전역 설정을 재정의할 수 있습니다.",
+      "fields": {
+        "prompt": {
+          "name": "프롬프트",
+          "description": "Perplexity Assistant에게 보내고자 하는 질문 또는 요청의 텍스트입니다.",
+          "example": "거실 불을 꺼 줘."
+        },
+        "model": {
+          "name": "모델",
+          "description": "경고: 구성 재정의. 이 요청에 사용할 Perplexity 모델을 선택하세요. 지정하지 않으면 통합 설정된 모델이 사용됩니다."
+        },
+        "enable_websearch": {
+          "name": "웹 검색 활성화",
+          "description": "경고: 구성 재정의. 활성화 시 이 요청은 통합 구성에서 비활성화되어 있어도 Perplexity 웹 검색을 사용할 수 있습니다. 비활성화 시 이 요청에서는 웹 검색이 강제로 꺼집니다."
+        },
+        "execute_actions": {
+          "name": "감지된 작업 실행",
+          "description": "활성화 시 응답에서 감지된 작업이 자동으로 실행됩니다. 이는 엔티티 작업 허용에 대한 전역 설정을 재정의하지 않습니다."
+        },
+        "force_actions_execution": {
+          "name": "작업 실행 강제",
+          "description": "경고: 구성 재정의. 활성화 시 응답에서 감지된 작업이 자동으로 실행됩니다."
+        }
       }
     }
   }
