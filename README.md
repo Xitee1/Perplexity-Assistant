@@ -94,35 +94,35 @@ The integration exposes a single service to send ad‑hoc prompts with optional 
 ```yaml
 service: perplexity_assistant.ask
 data:
-	prompt: "Set the bedroom light to 50% and tell me current temperature"
-	model: sonar-pro
-	enable_websearch: false
-	execute_actions: true
+  prompt: "Set the bedroom light to 50% and tell me current temperature"
+  model: sonar-pro
+  enable_websearch: false
+  execute_actions: true
 ```
 
 ### Example: Script
 ```yaml
 script:
-	bedtime_assistant_query:
-		sequence:
-			- service: perplexity_assistant.ask
-				data:
-					prompt: "Dim lights in the bedroom and report motion sensors status"
-					execute_actions: true
+  bedtime_assistant_query:
+    sequence:
+      - service: perplexity_assistant.ask
+        data:
+          prompt: "Dim lights in the bedroom and report motion sensors status"
+          execute_actions: true
 ```
 
 ### Example: Automation Triggered by Time
 ```yaml
 automation:
-	- alias: Morning Summary
-		trigger:
-			- platform: time
-				at: "07:30:00"
-		action:
-			- service: perplexity_assistant.as
-				data:
-					prompt: "Give me a concise status of lights and climate; if heater is off and <20C turn it on"
-					execute_actions: true
+  - alias: Morning Summary
+    trigger:
+      - platform: time
+        at: "07:30:00"
+    action:
+      - service: perplexity_assistant.as
+        data:
+          prompt: "Give me a concise status of lights and climate; if heater is off and <20C turn it on"
+          execute_actions: true
 ```
 
 ### Safety Notes
@@ -224,9 +224,9 @@ Add to your `configuration.yaml`:
 
 ```yaml
 logger:
-	default: warning
-	logs:
-		perplexity_assistant: debug
+  default: warning
+  logs:
+    perplexity_assistant: debug
 ```
 
 ## 🗺 Roadmap
