@@ -1,0 +1,190 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "API-sleutel"
+        },
+        "data_description": {
+          "api_key": "De opgegeven API-sleutel wordt gebruikt om verzoeken bij de Perplexity AI-service te authenticeren. Formaat: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Om Perplexity Assistant te gebruiken, genereer je een API-sleutel via [Perplexity](https://www.perplexity.ai/account/api/keys)."
+      },
+      "model": {
+        "data": {
+          "model": "Model",
+          "language": "Taal",
+          "custom_system_prompt": "Aangepaste systeemprompt",
+          "advanced_configuration": "Geavanceerde configuratie"
+        },
+        "data_description": {
+          "model": "Selecteer het model voor Perplexity Assistant. De kosten kunnen variëren afhankelijk van het gekozen model (meer info: [API-kosten](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Kies de taal waarin Perplexity Assistant antwoordt.",
+          "custom_system_prompt": "Geef aangepaste instructies om het gedrag van de assistant per verzoek te sturen."
+        },
+        "description": "Je kunt het model, de taal en een aangepaste systeemprompt instellen."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "Maximum aantal tokens",
+          "creativity": "Creativiteit",
+          "diversity": "Diversiteit",
+          "frequency_penalty": "Frequentie-straf"
+        },
+        "data_description": {
+          "max_tokens": "Beperkt de lengte van het antwoord van de assistant in aantal tokens.",
+          "creativity": "Bepaalt het creativiteitsniveau. Lagere waarden (rond 0,1) geven feitelijkere antwoorden; hogere waarden (rond 0,9) creatievere.",
+          "diversity": "Past de variatie van antwoorden aan. Lagere waarden (rond 0,1) zijn gefocust; hogere waarden (rond 0,9) vergroten de diversiteit.",
+          "frequency_penalty": "Vermindert herhaling in antwoorden. Hogere waarden (rond 1,0) straffen herhaling meer; lagere waarden (rond 0,0) niet."
+        },
+        "description": "Stel modelparameters af om het gedrag van de assistant te verfijnen."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Toegang tot Home Assistant-entiteiten toestaan",
+          "entities_summary_refresh_rate": "Verversingssnelheid entiteitenoverzicht",
+          "allow_actions_on_entities": "Acties op Home Assistant-entiteiten toestaan",
+          "enable_web_search": "Webzoekopdracht inschakelen voor actuele informatie",
+          "notify_response": "Elke reactie melden",
+          "enable_response_on_speakers": "Antwoorden via luidsprekers afspelen",
+          "tts_engine": "TTS-engine"
+        },
+        "data_description": {
+          "allow_entities_access": "Geeft Perplexity Assistant toegang tot entiteiten in je Home Assistant-instantie voor meer contextuele antwoorden.",
+          "entities_summary_refresh_rate": "Bepaalt hoe vaak het overzicht van entiteitsstatussen wordt bijgewerkt (in seconden).",
+          "allow_actions_on_entities": "Staat de assistant toe acties uit te voeren op entiteiten, zoals lichten inschakelen of de thermostaat aanpassen.",
+          "enable_web_search": "Schakelt webzoekopdrachten in voor actuele informatie; dit kan soms de relevantie verminderen.",
+          "notify_response": "Indien ingeschakeld, ontvang je een melding voor elke gegenereerde reactie.",
+          "enable_response_on_speakers": "Maakt weergave van antwoorden via verbonden luidsprekers mogelijk (TTS vereist en juiste lokalisatie).",
+          "tts_engine": "Selecteer de TTS-engine voor spraakantwoorden."
+        },
+        "description": "Definieer de toestemmingen en rechten voor Perplexity Assistant."
+      }
+    },
+    "error": {
+      "invalid_api_key": "De opgegeven API-sleutel is ongeldig. Controleer en probeer opnieuw.",
+      "invalid_api_key_length": "De API-sleutel moet exact 53 tekens lang zijn. Controleer en probeer opnieuw.",
+      "max_length_exceeded": "De aangepaste systeemprompt mag niet langer zijn dan 250 tekens. Kort in en probeer opnieuw.",
+      "cannot_connect": "Kan geen verbinding maken met de Perplexity AI-service. Controleer je internetverbinding en probeer opnieuw.",
+      "unknown": "Er is een onbekende fout opgetreden. Probeer het later opnieuw."
+    },
+    "abort": {
+      "single_instance_allowed": "Slechts één instantie van Perplexity Assistant is toegestaan."
+    }
+  },
+  "selector": {
+    "model_options": {
+      "options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
+    },
+    "menu": {
+      "options": {
+        "api": "API-sleutel",
+        "model": "Model & Taal",
+        "model_parameters": "Modelparameters",
+        "authorization": "Autorisaties & Machtigingen"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "menu": "Kies de instellingen die je wilt wijzigen"
+        }
+      },
+      "api": {
+        "data": {
+          "api_key": "API-sleutel"
+        },
+        "data_description": {
+          "api_key": "De opgegeven API-sleutel wordt gebruikt om verzoeken bij de Perplexity AI-service te authenticeren. Formaat: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Om Perplexity Assistant te gebruiken, genereer je een API-sleutel via [Perplexity](https://www.perplexity.ai/account/api/keys)."
+      },
+      "model": {
+        "data": {
+          "model": "Model",
+          "language": "Taal",
+          "custom_system_prompt": "Aangepaste systeemprompt"
+        },
+        "data_description": {
+          "model": "Selecteer het model voor Perplexity Assistant. De kosten kunnen variëren afhankelijk van het gekozen model (meer info: [API-kosten](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Kies de taal waarin Perplexity Assistant antwoordt.",
+          "custom_system_prompt": "Geef aangepaste instructies om het gedrag van de assistant per verzoek te sturen."
+        },
+        "description": "Je kunt model, taal en een aangepaste systeemprompt instellen."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "Maximum aantal tokens",
+          "creativity": "Creativiteit",
+          "diversity": "Diversiteit",
+          "frequency_penalty": "Frequentie-straf"
+        },
+        "data_description": {
+          "max_tokens": "Beperkt de lengte van het antwoord van de assistant in aantal tokens.",
+          "creativity": "Bepaalt het creativiteitsniveau. Lagere waarden (rond 0,1) geven feitelijkere antwoorden; hogere waarden (rond 0,9) creatievere.",
+          "diversity": "Past de variatie van antwoorden aan. Lagere waarden (rond 0,1) zijn gefocust; hogere waarden (rond 0,9) vergroten de diversiteit.",
+          "frequency_penalty": "Vermindert herhaling in antwoorden. Hogere waarden (rond 1,0) straffen herhaling meer; lagere waarden (rond 0,0) niet."
+        },
+        "description": "Stel modelparameters af om het gedrag van de assistant te verfijnen."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Toegang tot Home Assistant-entiteiten toestaan",
+          "allow_actions_on_entities": "Acties op Home Assistant-entiteiten toestaan",
+          "entities_summary_refresh_rate": "Verversingssnelheid entiteitenoverzicht",
+          "enable_web_search": "Webzoekopdracht inschakelen voor actuele informatie",
+          "notify_response": "Elke reactie melden",
+          "enable_response_on_speakers": "Antwoorden via luidsprekers afspelen",
+          "tts_engine": "TTS-engine"
+        },
+        "data_description": {
+          "allow_entities_access": "Geeft Perplexity Assistant toegang tot entiteiten in je Home Assistant-instantie voor meer contextuele antwoorden.",
+          "entities_summary_refresh_rate": "Bepaalt hoe vaak het overzicht van entiteitsstatussen wordt bijgewerkt (in seconden).",
+          "allow_actions_on_entities": "Staat de assistant toe acties uit te voeren op entiteiten, zoals lichten inschakelen of de thermostaat aanpassen.",
+          "enable_web_search": "Schakelt webzoekopdrachten in voor actuele informatie; dit kan soms de relevantie verminderen.",
+          "notify_response": "Indien ingeschakeld, ontvang je een melding voor elke gegenereerde reactie.",
+          "enable_response_on_speakers": "Maakt weergave van antwoorden via verbonden luidsprekers mogelijk (TTS vereist en juiste lokalisatie).",
+          "tts_engine": "Selecteer de TTS-engine voor spraakantwoorden."
+        },
+        "description": "Pas de toestemmingen en rechten voor Perplexity Assistant aan."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Stel een vraag aan Perplexity Assistant",
+      "description": "Sommige opties kunnen de globale configuratie voor deze specifieke aanvraag overschrijven.",
+      "fields": {
+        "prompt": {
+          "name": "Prompt",
+          "description": "De tekst van de vraag of het verzoek dat je aan Perplexity Assistant wilt stellen.",
+          "example": "Schakel de woonkamerlichten uit."
+        },
+        "model": {
+          "name": "Model",
+          "description": "WAARSCHUWING: OVERSCHRIJFT CONFIGURATIE. Selecteer het Perplexity-model voor deze aanvraag. Indien niet opgegeven wordt het in de integratie geconfigureerde model gebruikt."
+        },
+        "enable_websearch": {
+          "name": "Webzoekopdracht inschakelen",
+          "description": "WAARSCHUWING: OVERSCHRIJFT CONFIGURATIE. Indien ingeschakeld kan deze aanvraag de webzoekfunctie gebruiken ook als deze in de integratie is uitgeschakeld. Indien uitgeschakeld wordt webzoekopdracht voor deze aanvraag geforceerd uitgeschakeld."
+        },
+        "execute_actions": {
+          "name": "Gedetecteerde acties uitvoeren",
+          "description": "Indien ingeschakeld worden acties die in het antwoord worden gedetecteerd automatisch uitgevoerd. Dit overschrijft niet de globale instelling die acties toelaat."
+        },
+        "force_actions_execution": {
+          "name": "Uitvoering van acties afdwingen",
+          "description": "WAARSCHUWING: OVERSCHRIJFT CONFIGURATIE. Indien ingeschakeld worden gedetecteerde acties in het antwoord automatisch uitgevoerd."
+        }
+      }
+    }
+  }
+}

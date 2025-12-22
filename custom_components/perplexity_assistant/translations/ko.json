@@ -1,0 +1,190 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "API 키"
+        },
+        "data_description": {
+          "api_key": "제공된 API 키는 Perplexity AI 서비스 요청 인증에 사용됩니다. 형식: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Perplexity Assistant를 사용하려면 [Perplexity](https://www.perplexity.ai/account/api/keys)에서 API 키를 생성하세요."
+      },
+      "model": {
+        "data": {
+          "model": "모델",
+          "language": "언어",
+          "custom_system_prompt": "사용자 지정 시스템 프롬프트",
+          "advanced_configuration": "고급 설정"
+        },
+        "data_description": {
+          "model": "Perplexity Assistant에 사용할 모델을 선택하세요. 선택한 모델에 따라 비용이 달라질 수 있습니다(자세한 내용: [API 비용](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Perplexity Assistant가 응답할 언어를 선택하세요.",
+          "custom_system_prompt": "각 요청에 대해 어시스턴트의 동작을 안내할 사용자 지정 지침을 제공합니다."
+        },
+        "description": "모델, 언어, 사용자 지정 시스템 프롬프트를 구성할 수 있습니다."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "최대 토큰",
+          "creativity": "창의성",
+          "diversity": "다양성",
+          "frequency_penalty": "빈도 페널티"
+        },
+        "data_description": {
+          "max_tokens": "어시스턴트 응답의 길이를 토큰 수로 제한합니다.",
+          "creativity": "응답의 창의성 수준을 제어합니다. 낮은 값(약 0.1)은 사실 위주, 높은 값(약 0.9)은 더 창의적입니다.",
+          "diversity": "생성되는 응답의 다양성을 조절합니다. 낮은 값(약 0.1)은 집중도가 높고, 높은 값(약 0.9)은 다양성이 증가합니다.",
+          "frequency_penalty": "응답의 반복을 줄입니다. 높은 값(약 1.0)은 반복을 더 강하게 억제하고 낮은 값(약 0.0)은 억제하지 않습니다."
+        },
+        "description": "모델 매개변수를 조정하여 어시스턴트의 동작을 미세 조정합니다."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Home Assistant 엔티티 액세스 허용",
+          "entities_summary_refresh_rate": "엔티티 요약 새로고침 주기",
+          "allow_actions_on_entities": "Home Assistant 엔티티에 대한 작업 허용",
+          "enable_web_search": "최신 정보를 위한 웹 검색 활성화",
+          "notify_response": "각 응답 알림",
+          "enable_response_on_speakers": "스피커에서 응답 재생",
+          "tts_engine": "TTS 엔진"
+        },
+        "data_description": {
+          "allow_entities_access": "Home Assistant 인스턴스의 엔티티에 대한 액세스를 허용하여 더 문맥에 맞는 응답을 제공합니다.",
+          "entities_summary_refresh_rate": "엔티티 상태 요약을 업데이트하는 빈도(초)를 설정합니다.",
+          "allow_actions_on_entities": "조명 켜기나 온도 조절 등 엔티티에 대한 작업을 허용합니다.",
+          "enable_web_search": "최신 정보를 위해 웹 검색을 활성화하지만, 경우에 따라 관련성이 낮아질 수 있습니다.",
+          "notify_response": "활성화되면 생성된 각 응답에 대해 알림을 보냅니다.",
+          "enable_response_on_speakers": "Home Assistant에 연결된 스피커에서 응답을 재생합니다(TTS 구성 및 정확한 위치 파악 필요).",
+          "tts_engine": "음성 응답에 사용할 TTS 엔진을 선택하세요."
+        },
+        "description": "Perplexity Assistant의 권한과 허용 범위를 정의합니다."
+      }
+    },
+    "error": {
+      "invalid_api_key": "제공된 API 키가 유효하지 않습니다. 확인 후 다시 시도하세요.",
+      "invalid_api_key_length": "API 키는 정확히 53자여야 합니다. 확인 후 다시 시도하세요.",
+      "max_length_exceeded": "사용자 지정 시스템 프롬프트는 250자를 초과할 수 없습니다. 줄인 후 다시 시도하세요.",
+      "cannot_connect": "Perplexity AI 서비스에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도하세요.",
+      "unknown": "알 수 없는 오류가 발생했습니다. 나중에 다시 시도하세요."
+    },
+    "abort": {
+      "single_instance_allowed": "Perplexity Assistant 인스턴스는 하나만 허용됩니다."
+    }
+  },
+  "selector": {
+    "model_options": {
+      "options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
+    },
+    "menu": {
+      "options": {
+        "api": "API 키",
+        "model": "모델 & 언어",
+        "model_parameters": "모델 매개변수",
+        "authorization": "권한 & 허용 범위"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "menu": "변경할 설정 선택"
+        }
+      },
+      "api": {
+        "data": {
+          "api_key": "API 키"
+        },
+        "data_description": {
+          "api_key": "제공된 API 키는 Perplexity AI 서비스 요청 인증에 사용됩니다. 형식: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Perplexity Assistant를 사용하려면 [Perplexity](https://www.perplexity.ai/account/api/keys)에서 API 키를 생성하세요."
+      },
+      "model": {
+        "data": {
+          "model": "모델",
+          "language": "언어",
+          "custom_system_prompt": "사용자 지정 시스템 프롬프트"
+        },
+        "data_description": {
+          "model": "Perplexity Assistant에 사용할 모델을 선택하세요. 선택한 모델에 따라 비용이 달라질 수 있습니다(자세한 내용: [API 비용](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Perplexity Assistant가 응답할 언어를 선택하세요.",
+          "custom_system_prompt": "각 요청에 대해 어시스턴트의 동작을 안내할 사용자 지정 지침을 제공합니다."
+        },
+        "description": "모델, 언어, 사용자 지정 시스템 프롬프트를 구성할 수 있습니다."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "최대 토큰",
+          "creativity": "창의성",
+          "diversity": "다양성",
+          "frequency_penalty": "빈도 페널티"
+        },
+        "data_description": {
+          "max_tokens": "어시스턴트 응답의 길이를 토큰 수로 제한합니다.",
+          "creativity": "응답의 창의성 수준을 제어합니다. 낮은 값(약 0.1)은 사실 위주, 높은 값(약 0.9)은 더 창의적입니다.",
+          "diversity": "생성되는 응답의 다양성을 조절합니다. 낮은 값(약 0.1)은 집중도가 높고, 높은 값(약 0.9)은 다양성이 증가합니다.",
+          "frequency_penalty": "응답의 반복을 줄입니다. 높은 값(약 1.0)은 반복을 더 강하게 억제하고 낮은 값(약 0.0)은 억제하지 않습니다."
+        },
+        "description": "모델 매개변수를 조정하여 어시스턴트의 동작을 미세 조정합니다."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Home Assistant 엔티티 액세스 허용",
+          "allow_actions_on_entities": "Home Assistant 엔티티에 대한 작업 허용",
+          "entities_summary_refresh_rate": "엔티티 요약 새로고침 주기",
+          "enable_web_search": "최신 정보를 위한 웹 검색 활성화",
+          "notify_response": "각 응답 알림",
+          "enable_response_on_speakers": "스피커에서 응답 재생",
+          "tts_engine": "TTS 엔진"
+        },
+        "data_description": {
+          "allow_entities_access": "Home Assistant 인스턴스의 엔티티에 대한 액세스를 허용하여 더 문맥에 맞는 응답을 제공합니다.",
+          "allow_actions_on_entities": "조명 켜기나 온도 조절 등 엔티티에 대한 작업을 허용합니다.",
+          "entities_summary_refresh_rate": "엔티티 상태 요약을 업데이트하는 빈도(초)를 설정합니다.",
+          "enable_web_search": "최신 정보를 위해 웹 검색을 활성화하지만, 경우에 따라 관련성이 낮아질 수 있습니다.",
+          "notify_response": "활성화되면 생성된 각 응답에 대해 알림을 보냅니다.",
+          "enable_response_on_speakers": "Home Assistant에 연결된 스피커에서 응답을 재생합니다(TTS 구성 및 정확한 위치 파악 필요).",
+          "tts_engine": "음성 응답에 사용할 TTS 엔진을 선택하세요."
+        },
+        "description": "권한과 허용 범위를 변경합니다."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Perplexity Assistant에게 질문하기",
+      "description": "일부 옵션은 이 개별 요청에 대해 전역 설정을 재정의할 수 있습니다.",
+      "fields": {
+        "prompt": {
+          "name": "프롬프트",
+          "description": "Perplexity Assistant에게 보내고자 하는 질문 또는 요청의 텍스트입니다.",
+          "example": "거실 불을 꺼 줘."
+        },
+        "model": {
+          "name": "모델",
+          "description": "경고: 구성 재정의. 이 요청에 사용할 Perplexity 모델을 선택하세요. 지정하지 않으면 통합 설정된 모델이 사용됩니다."
+        },
+        "enable_websearch": {
+          "name": "웹 검색 활성화",
+          "description": "경고: 구성 재정의. 활성화 시 이 요청은 통합 구성에서 비활성화되어 있어도 Perplexity 웹 검색을 사용할 수 있습니다. 비활성화 시 이 요청에서는 웹 검색이 강제로 꺼집니다."
+        },
+        "execute_actions": {
+          "name": "감지된 작업 실행",
+          "description": "활성화 시 응답에서 감지된 작업이 자동으로 실행됩니다. 이는 엔티티 작업 허용에 대한 전역 설정을 재정의하지 않습니다."
+        },
+        "force_actions_execution": {
+          "name": "작업 실행 강제",
+          "description": "경고: 구성 재정의. 활성화 시 응답에서 감지된 작업이 자동으로 실행됩니다."
+        }
+      }
+    }
+  }
+}

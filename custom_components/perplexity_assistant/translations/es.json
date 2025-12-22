@@ -1,0 +1,190 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "api_key": "Clave API"
+        },
+        "data_description": {
+          "api_key": "La clave de API proporcionada se utilizará para autenticar las solicitudes al servicio Perplexity AI. Tiene el formato: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Para usar Perplexity Assistant, debes generar una clave API en [Perplexity](https://www.perplexity.ai/account/api/keys)."
+      },
+      "model": {
+        "data": {
+          "model": "Modelo",
+          "language": "Idioma",
+          "custom_system_prompt": "Indicaciones del sistema personalizadas",
+          "advanced_configuration": "Configuración avanzada"
+        },
+        "data_description": {
+          "model": "Selecciona el modelo que utilizará Perplexity Assistant. Los costes asociados pueden variar según el modelo elegido (más información: [Coste de la API](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Elige el idioma en el que responderá Perplexity Assistant.",
+          "custom_system_prompt": "Proporciona instrucciones personalizadas para guiar el comportamiento de Perplexity Assistant en cada solicitud."
+        },
+        "description": "Puedes personalizar el modelo, el idioma y añadir una indicación del sistema personalizada para Perplexity Assistant."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "Máximo de tokens",
+          "creativity": "Creatividad",
+          "diversity": "Diversidad",
+          "frequency_penalty": "Penalización por frecuencia"
+        },
+        "data_description": {
+          "max_tokens": "Limita la longitud de la respuesta del asistente en número de tokens.",
+          "creativity": "Controla el nivel de creatividad en las respuestas. Valores bajos (cerca de 0.1) producen respuestas más factuales; valores altos (cerca de 0.9) generan respuestas más creativas.",
+          "diversity": "Ajusta la diversidad de las respuestas generadas. Valores bajos (cerca de 0.1) son más enfocadas; valores altos (cerca de 0.9) aumentan la diversidad.",
+          "frequency_penalty": "Reduce la repetición en las respuestas. Valores altos (cerca de 1.0) penalizan más la repetición; valores bajos (cerca de 0.0) no la penalizan."
+        },
+        "description": "Personaliza los parámetros del modelo para ajustar el comportamiento del asistente."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Permitir acceso a las entidades de Home Assistant",
+          "entities_summary_refresh_rate": "Frecuencia de actualización del resumen de entidades",
+          "allow_actions_on_entities": "Permitir acciones sobre las entidades de Home Assistant",
+          "enable_web_search": "Habilitar búsqueda web para información actualizada",
+          "notify_response": "Notificar cada respuesta a una consulta",
+          "enable_response_on_speakers": "Habilitar la reproducción de respuestas por los altavoces",
+          "tts_engine": "Motor TTS"
+        },
+        "data_description": {
+          "allow_entities_access": "Permite que Perplexity Assistant acceda a las entidades de tu instancia de Home Assistant para ofrecer respuestas más contextuales.",
+          "entities_summary_refresh_rate": "Define la frecuencia con la que Perplexity Assistant actualiza el resumen del estado de las entidades de Home Assistant (en segundos).",
+          "allow_actions_on_entities": "Permite que Perplexity Assistant realice acciones sobre las entidades de Home Assistant, como encender luces o ajustar el termostato.",
+          "enable_web_search": "Habilita la capacidad de Perplexity Assistant para realizar búsquedas web de información actualizada, aunque a veces puede reducir la relevancia de las respuestas.",
+          "notify_response": "Si está activado, Perplexity Assistant te notificará cada respuesta que genere.",
+          "enable_response_on_speakers": "Permite que Perplexity Assistant reproduzca respuestas a través de los altavoces conectados a Home Assistant, siempre que TTS esté configurado y Perplexity pueda ubicarte correctamente.",
+          "tts_engine": "Selecciona el motor TTS a usar para las respuestas por voz."
+        },
+        "description": "Define las autorizaciones y permisos de Perplexity Assistant."
+      }
+    },
+    "error": {
+      "invalid_api_key": "La clave API proporcionada no es válida. Compruébala e inténtalo de nuevo.",
+      "invalid_api_key_length": "La clave API debe tener exactamente 53 caracteres. Compruébala e inténtalo de nuevo.",
+      "max_length_exceeded": "La indicación del sistema personalizada no debe superar los 250 caracteres. Acórtala e inténtalo de nuevo.",
+      "cannot_connect": "No se puede conectar al servicio Perplexity AI. Comprueba tu conexión a Internet e inténtalo de nuevo.",
+      "unknown": "Se ha producido un error desconocido. Inténtalo más tarde."
+    },
+    "abort": {
+      "single_instance_allowed": "Solo se permite una única instancia de Perplexity Assistant."
+    }
+  },
+  "selector": {
+    "model_options": {
+      "options": {
+        "sonar": "Sonar",
+        "sonar-pro": "Sonar Pro",
+        "sonar-reasoning": "Sonar Reasoning",
+        "sonar-reasoning-pro": "Sonar Reasoning Pro",
+        "sonar-deep-research": "Sonar Deep Research"
+      }
+    },
+    "menu": {
+      "options": {
+        "api": "Clave API",
+        "model": "Modelo & Idioma",
+        "model_parameters": "Parámetros del modelo",
+        "authorization": "Autorizaciones & Permisos"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "menu": "Elige los parámetros que quieres modificar"
+        }
+      },
+      "api": {
+        "data": {
+          "api_key": "Clave API"
+        },
+        "data_description": {
+          "api_key": "La clave de API proporcionada se utilizará para autenticar las solicitudes al servicio Perplexity AI. Tiene el formato: pplx-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        "description": "Para usar Perplexity Assistant, debes generar una clave API en [Perplexity](https://www.perplexity.ai/account/api/keys)."
+      },
+      "model": {
+        "data": {
+          "model": "Modelo",
+          "language": "Idioma",
+          "custom_system_prompt": "Indicaciones del sistema personalizadas"
+        },
+        "data_description": {
+          "model": "Selecciona el modelo que utilizará Perplexity Assistant. Los costes asociados pueden variar según el modelo elegido (más información: [Coste de la API](https://github.com/Pekulll/Perplexity-Assistant?tab=readme-ov-file#3-api-cost)).",
+          "language": "Elige el idioma en el que responderá Perplexity Assistant.",
+          "custom_system_prompt": "Proporciona instrucciones personalizadas para guiar el comportamiento de Perplexity Assistant en cada solicitud."
+        },
+        "description": "Puedes personalizar el modelo, el idioma y añadir una indicación del sistema personalizada para Perplexity Assistant."
+      },
+      "model_parameters": {
+        "data": {
+          "max_tokens": "Máximo de tokens",
+          "creativity": "Creatividad",
+          "diversity": "Diversidad",
+          "frequency_penalty": "Penalización por frecuencia"
+        },
+        "data_description": {
+          "max_tokens": "Limita la longitud de la respuesta del asistente en número de tokens.",
+          "creativity": "Controla el nivel de creatividad en las respuestas. Valores bajos (cerca de 0.1) producen respuestas más factuales; valores altos (cerca de 0.9) generan respuestas más creativas.",
+          "diversity": "Ajusta la diversidad de las respuestas generadas. Valores bajos (cerca de 0.1) son más enfocadas; valores altos (cerca de 0.9) aumentan la diversidad.",
+          "frequency_penalty": "Reduce la repetición en las respuestas. Valores altos (cerca de 1.0) penalizan más la repetición; valores bajos (cerca de 0.0) no la penalizan."
+        },
+        "description": "Personaliza los parámetros del modelo para ajustar el comportamiento del asistente."
+      },
+      "authorization": {
+        "data": {
+          "allow_entities_access": "Permitir acceso a las entidades de Home Assistant",
+          "allow_actions_on_entities": "Permitir acciones sobre las entidades de Home Assistant",
+          "entities_summary_refresh_rate": "Frecuencia de actualización del resumen de entidades",
+          "enable_web_search": "Habilitar búsqueda web para información actualizada",
+          "notify_response": "Notificar cada respuesta a una consulta",
+          "enable_response_on_speakers": "Habilitar la reproducción de respuestas por los altavoces",
+          "tts_engine": "Motor TTS"
+        },
+        "data_description": {
+          "allow_entities_access": "Permite que Perplexity Assistant acceda a las entidades de tu instancia de Home Assistant para ofrecer respuestas más contextuales.",
+          "entities_summary_refresh_rate": "Define la frecuencia con la que Perplexity Assistant actualiza el resumen del estado de las entidades de Home Assistant (en segundos).",
+          "allow_actions_on_entities": "Permite que Perplexity Assistant realice acciones sobre las entidades de Home Assistant, como encender luces o ajustar el termostato.",
+          "enable_web_search": "Habilita la capacidad de Perplexity Assistant para realizar búsquedas web de información actualizada, aunque a veces puede reducir la relevancia de las respuestas.",
+          "notify_response": "Si está activado, Perplexity Assistant te notificará cada respuesta que genere.",
+          "enable_response_on_speakers": "Permite que Perplexity Assistant reproduzca respuestas a través de los altavoces conectados a Home Assistant, siempre que TTS esté configurado y Perplexity pueda ubicarte correctamente.",
+          "tts_engine": "Selecciona el motor TTS a usar para las respuestas por voz."
+        },
+        "description": "Modifica las autorizaciones y permisos de Perplexity Assistant."
+      }
+    }
+  },
+  "services": {
+    "ask": {
+      "name": "Hacer una pregunta a Perplexity Assistant",
+      "description": "Algunas opciones pueden sobrescribir la configuración global para esta solicitud específica.",
+      "fields": {
+        "prompt": {
+          "name": "Prompt",
+          "description": "El texto de la pregunta o petición que quieres hacer a Perplexity Assistant.",
+          "example": "Apaga las luces del salón."
+        },
+        "model": {
+          "name": "Modelo",
+          "description": "ADVERTENCIA: SOBRESCRIBE LA CONFIGURACIÓN. Selecciona el modelo de Perplexity para esta solicitud. Si no se especifica, se usará el modelo configurado en la integración."
+        },
+        "enable_websearch": {
+          "name": "Habilitar búsqueda web",
+          "description": "ADVERTENCIA: SOBRESCRIBE LA CONFIGURACIÓN. Si se activa, esta solicitud podrá usar la búsqueda web de Perplexity aunque esté desactivada en la configuración. Si se desactiva, la búsqueda web se forzará a estar desactivada en esta solicitud."
+        },
+        "execute_actions": {
+          "name": "Ejecutar acciones detectadas",
+          "description": "Si se activa, las acciones detectadas en la respuesta se ejecutarán automáticamente. Esto no sobrescribe la configuración global que permite acciones sobre entidades."
+        },
+        "force_actions_execution": {
+          "name": "Forzar ejecución de acciones",
+          "description": "ADVERTENCIA: SOBRESCRIBE LA CONFIGURACIÓN. Si se activa, las acciones detectadas en la respuesta se ejecutarán automáticamente."
+        }
+      }
+    }
+  }
+}
